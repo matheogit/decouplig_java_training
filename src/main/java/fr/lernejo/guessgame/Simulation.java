@@ -3,6 +3,9 @@ package fr.lernejo.guessgame;
 import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Simulation {
 
     private final Logger logger = LoggerFactory.getLogger("simulation");
@@ -31,11 +34,25 @@ public class Simulation {
         return true;
     }
 
-    public void loopUntilPlayerSucceed() {
+    public void loopUntilPlayerSucceed(long max_iteration) {
         boolean quit = true;
+        long iteration = 0;
+
+        long start = System.currentTimeMillis();
+
         while (quit){
             quit = nextRound();
+            iteration++;
+            if (iteration == max_iteration){
+                this.logger.log("You failed !");
+                return;
+            }
         }
-        this.logger.log("You got it !");
+        long end = System.currentTimeMillis();
+        long time = end - start;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss.SSS");
+
+        String date = simpleDateFormat.format(new Date(time));
+        this.logger.log("You got it ! In " + date);
     }
 }
