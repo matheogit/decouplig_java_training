@@ -50,9 +50,10 @@ public class Simulation {
         }
         long end = System.currentTimeMillis();
         long time = end - start;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss.SSS");
 
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss.SSS");
         String date = simpleDateFormat.format(new Date(time));
+
         this.logger.log("You got it ! In " + date);
     }
 }
