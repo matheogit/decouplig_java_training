@@ -54,6 +54,6 @@ public class Simulation {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss.SSS");
         String date = simpleDateFormat.format(new Date(time));
 
-        this.logger.log("You got it ! In " + date);
+        this.logger.log("win" + date);
     }
 }

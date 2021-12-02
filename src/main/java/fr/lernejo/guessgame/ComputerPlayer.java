@@ -10,7 +10,8 @@ public class ComputerPlayer implements Player{
     long max = Long.MAX_VALUE;
 
     public long askNextGuess() {
-        //this.logger.log(Long.toString((this.max + this.min) / 2));
+        this.logger.log(Long.toString((this.max + this.min) / 2));
+        System.out.println((this.max + this.min) / 2);
 
         return (this.max + this.min) / 2;
     }
